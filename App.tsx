@@ -9,13 +9,13 @@ const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleMoodSubmit = async (mood: string) => {
+  const handleMoodSubmit = async (mood: string, style: string) => {
     setIsLoading(true);
     setError(null);
     setLyrics(null);
 
     try {
-      const generatedLyrics = await generateSongLyrics(mood);
+      const generatedLyrics = await generateSongLyrics(mood, style);
       setLyrics(generatedLyrics);
     } catch (err) {
       console.error("Failed to generate lyrics:", err);
@@ -42,8 +42,8 @@ const App: React.FC = () => {
 
         <div className="relative z-10">
           <header className="text-center mb-10">
-            {/* pb-2 added to prevent clipping of descenders (g, y, p) in gradient text */}
-            <h1 className="text-4xl md:text-5xl font-serif font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-pink-200 mb-3 drop-shadow-sm pb-2">
+            {/* pb-4 added to prevent clipping of descenders (g, y, p) in gradient text */}
+            <h1 className="text-4xl md:text-5xl font-serif font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-pink-200 mb-3 drop-shadow-sm pb-4">
               Mood Lyrics
             </h1>
             <p className="text-purple-200/60 text-sm md:text-base font-light tracking-wide">
