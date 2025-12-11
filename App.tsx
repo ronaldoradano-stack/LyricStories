@@ -27,7 +27,7 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 md:p-8">
-      <main className="w-full max-w-2xl p-6 md:p-12 relative overflow-hidden">
+      <main className="w-full max-w-2xl p-6 md:p-12 relative overflow-hidden bg-slate-900/80 backdrop-blur-xl border border-purple-500/20 rounded-3xl shadow-2xl">
         
         <div className="relative z-10">
           <header className="text-center mb-10">
