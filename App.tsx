@@ -17,9 +17,18 @@ const App: React.FC = () => {
     try {
       const generatedLyrics = await generateSongLyrics(mood, style);
       setLyrics(generatedLyrics);
-    } catch (err) {
+    } catch (err: any) {
       console.error("Failed to generate lyrics:", err);
-      setError("We couldn't catch that vibe. Please try again.");
+      
+      // Check for specific API errors (429 = Rate Limit, 503 = Overload)
+      const errorMessage = err?.toString() || "";
+      if (errorMessage.includes("429") || errorMessage.includes("Quota") || errorMessage.includes("Resource exhausted")) {
+        setError("Traffic is high! Give the creative juices a minute to recharge.");
+      } else if (errorMessage.includes("503")) {
+        setError("The AI is a bit overwhelmed. Try again in a few seconds.");
+      } else {
+        setError("We couldn't catch that vibe. Please try again.");
+      }
     } finally {
       setIsLoading(false);
     }
@@ -42,8 +51,8 @@ const App: React.FC = () => {
 
         <div className="relative z-10">
           <header className="text-center mb-10">
-            {/* pb-4 added to prevent clipping of descenders (g, y, p) in gradient text */}
-            <h1 className="text-4xl md:text-5xl font-serif font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-pink-200 mb-3 drop-shadow-sm pb-4">
+            {/* pb-6 added to prevent clipping of descenders (g, y, p) in gradient text */}
+            <h1 className="text-4xl md:text-5xl font-serif font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-pink-200 mb-3 drop-shadow-sm pb-6">
               Mood Lyrics
             </h1>
             <p className="text-purple-200/60 text-sm md:text-base font-light tracking-wide">
