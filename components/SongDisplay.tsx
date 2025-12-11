@@ -50,11 +50,12 @@ export const SongDisplay: React.FC<SongDisplayProps> = ({ lyrics }) => {
       <div className="relative group">
         <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
         
-        <div className="relative bg-slate-900 border border-slate-700/50 rounded-2xl p-8 md:p-10 shadow-2xl flex flex-col">
+        {/* Changed bg-slate-900 to bg-black/20 for better blending with parent purple card */}
+        <div className="relative bg-black/20 border border-white/10 rounded-2xl p-8 md:p-10 shadow-2xl flex flex-col backdrop-blur-sm">
           {/* Top Copy Button */}
           <button
             onClick={handleCopy}
-            className="absolute top-4 right-4 p-2 text-slate-500 hover:text-white transition-colors rounded-lg hover:bg-white/5"
+            className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white transition-colors rounded-lg hover:bg-white/5"
             title="Copy lyrics"
           >
             {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
@@ -76,14 +77,14 @@ export const SongDisplay: React.FC<SongDisplayProps> = ({ lyrics }) => {
           </div>
 
           {/* Share Actions Footer */}
-          <div className="pt-6 border-t border-white/5 flex items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: '0.5s' }}>
-            <span className="text-slate-500 text-xs uppercase tracking-widest font-semibold mr-2">Share</span>
+          <div className="pt-6 border-t border-white/10 flex items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+            <span className="text-slate-400 text-xs uppercase tracking-widest font-semibold mr-2">Share</span>
             
             <a 
               href={twitterUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-2 bg-slate-800 hover:bg-[#1DA1F2] text-slate-400 hover:text-white rounded-full transition-all duration-300 hover:scale-110 shadow-lg"
+              className="p-2 bg-slate-800/80 hover:bg-[#1DA1F2] text-slate-400 hover:text-white rounded-full transition-all duration-300 hover:scale-110 shadow-lg border border-white/5"
               title="Share on Twitter"
             >
               <Twitter className="w-4 h-4" />
@@ -93,7 +94,7 @@ export const SongDisplay: React.FC<SongDisplayProps> = ({ lyrics }) => {
               href={whatsappUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-2 bg-slate-800 hover:bg-[#25D366] text-slate-400 hover:text-white rounded-full transition-all duration-300 hover:scale-110 shadow-lg"
+              className="p-2 bg-slate-800/80 hover:bg-[#25D366] text-slate-400 hover:text-white rounded-full transition-all duration-300 hover:scale-110 shadow-lg border border-white/5"
               title="Share on WhatsApp"
             >
               <MessageCircle className="w-4 h-4" />
@@ -102,7 +103,7 @@ export const SongDisplay: React.FC<SongDisplayProps> = ({ lyrics }) => {
             {canNativeShare && (
               <button 
                 onClick={handleNativeShare}
-                className="p-2 bg-slate-800 hover:bg-purple-600 text-slate-400 hover:text-white rounded-full transition-all duration-300 hover:scale-110 shadow-lg"
+                className="p-2 bg-slate-800/80 hover:bg-purple-600 text-slate-400 hover:text-white rounded-full transition-all duration-300 hover:scale-110 shadow-lg border border-white/5"
                 title="More sharing options"
               >
                 <Share2 className="w-4 h-4" />

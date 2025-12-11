@@ -27,14 +27,25 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 md:p-8">
-      <main className="w-full max-w-2xl p-6 md:p-12 relative overflow-hidden bg-slate-900/80 backdrop-blur-xl border border-purple-500/20 rounded-3xl shadow-2xl">
+      {/* 
+        The Main App Card 
+        - bg-slate-900/90: Base dark color
+        - bg-gradient-to-br: Adds the purple dimension
+        - backdrop-blur: Glass effect
+      */}
+      <main className="w-full max-w-2xl p-6 md:p-12 relative overflow-hidden 
+                       bg-slate-900/90 bg-gradient-to-br from-slate-900 via-purple-950/50 to-slate-900 
+                       backdrop-blur-xl border border-purple-500/30 rounded-3xl shadow-2xl">
         
+        {/* Internal Glow Effect for depth */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-purple-500/10 blur-[60px] rounded-full pointer-events-none"></div>
+
         <div className="relative z-10">
           <header className="text-center mb-10">
-            <h1 className="text-4xl md:text-5xl font-serif font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-pink-200 mb-3">
+            <h1 className="text-4xl md:text-5xl font-serif font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-pink-200 mb-3 drop-shadow-sm">
               Mood Melody
             </h1>
-            <p className="text-slate-400 text-sm md:text-base font-light">
+            <p className="text-purple-200/60 text-sm md:text-base font-light tracking-wide">
               Get lyrics based on your current mood. Unique every time.
             </p>
           </header>
@@ -64,7 +75,7 @@ const App: React.FC = () => {
               )}
 
               {!lyrics && !isLoading && !error && (
-                <div className="text-slate-500 italic text-center text-sm opacity-50">
+                <div className="text-slate-500/60 italic text-center text-sm">
                   Ready to listen...
                 </div>
               )}
