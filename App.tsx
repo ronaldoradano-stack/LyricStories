@@ -26,13 +26,9 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 flex flex-col items-center justify-center p-4 md:p-8">
-      <main className="w-full max-w-2xl bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-12 shadow-2xl relative overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 md:p-8">
+      <main className="w-full max-w-2xl p-6 md:p-12 relative overflow-hidden">
         
-        {/* Decorative background blobs */}
-        <div className="absolute -top-20 -left-20 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-pink-600/20 rounded-full blur-3xl pointer-events-none"></div>
-
         <div className="relative z-10">
           <header className="text-center mb-10">
             <h1 className="text-4xl md:text-5xl font-serif font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-pink-200 mb-3">

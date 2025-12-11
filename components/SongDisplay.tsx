@@ -41,7 +41,7 @@ export const SongDisplay: React.FC<SongDisplayProps> = ({ lyrics }) => {
   return (
     <div className="w-full animate-slide-up">
       <div className="text-center mb-6">
-        <h2 className="text-xl md:text-2xl font-serif italic text-purple-200 flex items-center justify-center gap-2">
+        <h2 className="text-xl md:text-2xl font-serif text-purple-200 flex items-center justify-center gap-2">
           <Sparkles className="w-5 h-5 text-yellow-300 animate-pulse-slow" />
           Here's your song!
         </h2>
