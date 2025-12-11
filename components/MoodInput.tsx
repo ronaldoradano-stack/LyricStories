@@ -6,7 +6,7 @@ interface MoodInputProps {
   isLoading: boolean;
 }
 
-const STYLES = ['Pop', 'Rap', 'Country', 'R&B'];
+const STYLES = ['Pop', 'Rap', 'Rock', 'Country', 'R&B'];
 
 export const MoodInput: React.FC<MoodInputProps> = ({ onSubmit, isLoading }) => {
   const [mood, setMood] = useState('');

@@ -19,6 +19,9 @@ export const generateSongLyrics = async (mood: string, style: string): Promise<s
     case 'Rap':
       styleInstruction = "Write in a Rap style. Use internal rhymes, flow, slang, and a confident or gritty tone. Make it rhythmic.";
       break;
+    case 'Rock':
+      styleInstruction = "Write in a Rock style. Use energetic, raw, or rebellious language. Make it sound powerful and edgy.";
+      break;
     case 'Country':
       styleInstruction = "Write in a Country music style. Use simple, storytelling language. Mention tangible things (roads, heart, home, rain).";
       break;
