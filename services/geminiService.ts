@@ -1,8 +1,18 @@
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const apiKey = process.env.API_KEY;
+
+if (!apiKey) {
+  console.error("API_KEY is missing. Make sure it is set in your Vercel Environment Variables.");
+}
+
+const ai = new GoogleGenAI({ apiKey: apiKey || 'dummy-key-to-prevent-crash' });
 
 export const generateSongLyrics = async (mood: string): Promise<string> => {
+  if (!apiKey) {
+    throw new Error("API configuration is missing.");
+  }
+
   const prompt = `
     You are a soulful songwriter.
     The user is feeling: "${mood}".
